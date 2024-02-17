@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/includes/navbar.css">
+</head>
+<body>
+    <header >
+        <p><i class="fa-solid fa-toolbox"></i>Free Shipping for orders over $50</p>
+        <ul id="ul" class="hide">
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">HelpCenter</a></li>
+            <li>Call us<i class="fa-solid fa-phone"></i><a href="">123-456-7890</a></li>
+            <li class="x" onclick="f2()"><i class="fa-brands fa-x-twitter fa-2xl"></i></li>
+        </ul>
+        <div class="bar" onclick="f1()">
+            <i class="fa-solid fa-bars fa-xl"></i>
+        </div>
+    </header>
+    <div class="navbar" id="head">
+        <div class="box1" >
+            <a href="/"><h1>TechShed</h1></a>
+            <form id="input" class="open" method="get">
+                <input type="text"  placeholder="Search..." name="keyword" >
+                <button type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                <div onclick="f5()" id="x">
+                    <i class="fa-solid fa-x fa-2xl"></i>
+                </div>
+            </form>
+        </div>
+       
+        <div class="box2">
+            {%if user.id is None%}
+            <ol>
+                <li><a href="/signup"><i class="fa-solid fa-user"></i>&nbsp; Signup</a></li>
+                <li><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Login</a></li>
+            </ol>
+            {%else%}
+            <ol>
+                <li><a href=""><i class="fa-solid fa-user"></i>&nbsp;{{user.first_name}}</a></li>
+                <li><a href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Logout</a></li>
+            </ol>
+            {%endif%}
+            <div class="search" onclick="f4()">
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+            </div>
+            <a href="/cart" class="cart">
+                <i class="fa-solid fa-cart-flatbed fa-2xl"></i>
+            <span>{{cart_total_item}}</span>
+            </a>
+            <div id="arrow" onclick="f3()">
+                <i class="fa-solid fa-caret-down fa-2xl"></i>
+            </div>
+        </div>
+        
+        {%if user.id is None%}
+        <ul id="ol">
+            <li><a href="/signup"><i class="fa-solid fa-user"></i>&nbsp; Signup</a></li>
+            <li><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Login</a></li>
+        </ul>
+        {%else%}
+        <ul id="ol">
+            <li><a href=""><i class="fa-solid fa-user"></i>&nbsp; {{user.first_name}}</a></li>
+            <li><a href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;Logout</a></li>
+        </ul>
+        {%endif%}
+    </div>
+    <div class="nav">
+        <ul id="nav-ul" class="khol">
+            <a href="/store" style="color: black;">Shop All</a>
+            {% for i in all_category %}
+                <li><a href="/store/category/{{i.slug}}">{{i.category_name}}</a></li>
+            {% endfor %}
+            <li class="left" onclick="f7()">
+                <i class="fa-solid fa-chevron-left fa-2xl"></i>
+            </li>
+        </ul>
+        <div class="right" onclick="f6()">
+            <i class="fa-solid fa-chevron-right fa-2xl"></i>
+        </div>
+    </div>
+    
+<script>
+        
+    a=document.getElementById('ul')
+function f1(){
+    if (a.classList.contains('hide')){
+        a.classList.remove('hide')
+        a.classList.add('show')
+    }
+    }
+function f2(){
+    if(a.classList.contains('show')){
+        a.classList.add('hide')
+        a.classList.remove('show')
+    }
+}
+function f3() {
+    document.getElementById('ol').classList.toggle('ol')
+}
+b=document.getElementById('input')
+function f4() {
+    if(b.classList.contains('open')){
+        b.classList.remove('open')
+        b.classList.add('close')
+    }
+}
+function f5() {
+    if(b.classList.contains('close')){
+        b.classList.remove('close')
+        b.classList.add('open')
+    }
+}
+c=document.getElementById('nav-ul')
+function f6() {
+    if(c.classList.contains('khol')){
+        c.classList.remove('khol')
+        c.classList.add('band')
+    }
+}
+function f7() {
+    if(c.classList.contains('band')){
+        c.classList.remove('band')
+        c.classList.add('khol')
+    }
+}
+</script>
+</body>
+</html>

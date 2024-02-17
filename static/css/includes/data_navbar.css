@@ -1,0 +1,52 @@
+.data-bar{
+    margin-bottom:50px;
+}
+
+.data-bar ul{
+    display: flex;
+    justify-content: space-between;
+    padding:60px 50px;
+    background-color:white;
+
+}
+
+.data-bar ul li{
+    width: 24%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    background-color: white;
+    justify-content: center;
+}
+.data-bar ul li h1{
+    font-size:20px;
+}
+
+@media screen and (max-width:900px) {
+    .data-bar ul li h1{
+        font-size:15px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .data-bar ul{
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .data-bar ul li{
+        width:40%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .data-bar ul li{
+        width:45%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .data-bar ul li{
+        width:100%;
+    }
+}

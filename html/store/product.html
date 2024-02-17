@@ -1,0 +1,62 @@
+{%extends '../base.html'%}
+{%block 'title'%}
+Product
+{%endblock%}
+{%block 'style'%}
+<link rel="stylesheet" href="/static/css/store/product.css">
+{%endblock%}
+{%block 'content'%}
+<form action="/store/add-to-cart/{{product.id}}" method="post" class="container">
+    {%csrf_token%}
+    <div class="product-pic">
+        <img src="{{product.images.url}}" alt="">
+    </div>
+    <div class="product-details">
+        <h1>{{product.product_name}}</h1>
+        <h2>SKU:{{product.id}}</h2>
+        <h3>${{product.price}}</h3>
+        
+        <div class="variation">
+            <select name="color" id="">
+                {%for i in color%}
+                <option value="{{i.variation_value}}">{{i.variation_value}}</option>
+                {%endfor%}
+            </select>
+            <select name="specification" id="">
+                {%for j in specification%}
+                    <option value="{{j.variation_value}}">{{j.variation_value}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        {% if product.stock <= 0 %}
+        
+        <a class="add-cart">
+           <button type="submit">Out-of-Stock</button>
+        </a>
+        {%else%}
+        <a href="" class="add-cart">
+            <button>Add to Cart<i class="fa-solid fa-cart-shopping"></i></button>
+        </a>
+        {%endif%}
+        
+        
+        <div class="product-info">
+            <h4>Product-Info</h4>
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+</form>
+<div class="container1">
+    <div class="cat_product">
+        {%for i in category_product%}
+        <a href="/store/category/{{i.category.slug}}/{{i.id}}" class="cat_box">
+            <div class="cat_img">
+                <img src="{{i.images.url}}" alt="">
+            </div>
+            <h1>{{i.product_name}}</h1>
+            <h2>${{i.price}}</h2>
+        </a>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

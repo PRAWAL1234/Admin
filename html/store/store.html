@@ -1,0 +1,62 @@
+{%extends '../base.html'%}
+{%block 'title'%}
+Store
+{%endblock%}
+{%block 'style' %}
+<link rel="stylesheet" href="/static/css/store/store.css">
+{%endblock%}
+{%block 'content'%}
+<div class="store">
+    <div class="left-menu">
+        <button type="button">Browse By<i class="fa-solid fa-caret-down fa-md"></i></button>
+        <ul id="ul" >
+           <li><h3>All Product</h3></li>
+           {%for a in all_category%}
+            <li><a href="/category/{{a.slug}}">{{a.category_name}}</a></li>
+           {%endfor%}
+        </ul>
+    </div>
+    <div class="store-product">
+        {%if all_product%}
+        <h1>All Product</h1>
+        <div class="product">
+            {%for i in all_product %}
+            <a href="/store/category/{{i.category.slug}}/{{i.id}}" class="product-box">
+                <div class="product-img">
+                    <img src="{{i.images.url}}" alt="">
+                </div>
+                <div class="product-text">
+                    <p>{{i.product_name}}</p>
+                    <h3>${{i.price}}</h3>
+                </div>
+            </a>
+            {%endfor%}
+        </div>
+        {%else%}
+        <h1>No Result Found. Please Try Again</h1>
+        {% endif %}
+    </div>
+</div>
+{%if all_product.has_other_pages%}
+<div class="paginator">
+    <div class="pages">
+        {%if all_product.has_previous%}
+            <a href="/store/?page={{all_products.previous_page_number}}">Previous</a>
+        {%else%}
+            <a href="" class="disabled">Previous</a>
+        {%endif%}
+
+        {%for i in all_product.paginator.page_range%}
+        
+            <a href="/store/?page={{i}}">{{i}}</a>
+
+        {%endfor%}
+        {%if all_product.has_next%}
+        <a href="/store/?page={{all_products.next_page_number}}">Next</a>
+        {%else%}
+        <a href="" class="disabled">Next</a>
+        {%endif%}
+    </div>
+</div>
+{%endif%}
+{%endblock%}

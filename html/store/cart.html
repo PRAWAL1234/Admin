@@ -1,0 +1,133 @@
+{%extends '../base.html'%}
+{%block 'title'%}
+Cart
+{%endblock%}
+{%block 'style'%}
+<link rel="stylesheet" href="/static/css/store/cart.css">
+{%endblock%}
+{%block 'content'%}
+<div class="container">
+    {% if  cart_item %}
+    <table>
+        <tr>
+            <td>Product</td>
+            <td>Quantity</td>
+            <td>Price</td>
+        </tr>
+        {%for i in cart_item%}
+        <tr>
+            <td>
+                <div class="product">
+                    <div class="product-img">
+                        <img src="{{i.product.images.url}}" alt="">
+                    </div>
+                    <div class="product-details">
+                        <h2>{{i.product.product_name}}</h2>
+                        {%if i.variation.all%}
+                            {%for v in i.variation.all%}
+                                <h5>{{v.variation_category}}:{{v.variation_value}}</h5>
+                            {%endfor%}
+                        {%endif%}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="quantity">
+                    <div class="box">
+                        <a href="/remove-item/{{i.id}}"><button><i class="fa fa-minus"></i></button></a>
+                        <input type="text" value="{{i.quantity}}">
+                        {% if i.product.stock <= 0%}
+                        <a href="" ><button onclick="return alert('Out of Stock')" disabled><i class="fa fa-plus"></i></button></a>
+                        {%else%}
+                        <a href="/add-item/{{i.id}}"><button><i class="fa fa-plus"></i></button></a>
+                        {%endif%}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="price">
+                    <h1>${{i.get_total}}</h1>
+                    <h5>each:{{i.product.price}}</h5>
+                </div>
+            </td>
+            <td>
+                <a href="/remove/{{i.id}}" onclick="return confirm('Are you Sure to delete this item')" class="remove"><button>Remove</button></a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    <div class="cart-body">
+        {%for i in cart_item%}
+        <ul>
+            <li>
+                <div class="product">
+                    <div class="product-img">
+                        <img src="{{i.product.images.url}}" alt="">
+                    </div>
+                    <div class="product-details">
+                        <h2>{{i.product.product_name}}</h2>
+                        {%if i.variation.all%}
+                            {%for a in i.variation.all%}
+                            <h5>{{a.variation_category}}:{{a.variation_value}}</h5>
+                            {%endfor%}
+                        {%endif%}
+                        <h5>Each:{{i.product.price}}</h5>
+                        <h5>Price:{{i.get_total}}</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="quantity">
+                    <div class="box">
+                        <a href="/remove-item/{{i.id}}"><button><i class="fa fa-minus"></i></button></a>
+                        <input type="text" value="{{i.quantity}}">
+                        {% if i.product.stock <= 0%}
+                        <a href=""><button disabled><i class="fa fa-plus"></i></button></a>
+                        {%else%}
+                        <a href="/add-item/{{i.id}}"><button><i class="fa fa-plus"></i></button></a>
+                        {%endif%}
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="/remove/{{i.id}}" onclick="return confirm('Are you Sure you want to delete this item')" class="remove">Remove</a>
+            </li>
+        </ul>
+        {%endfor%}
+    </div>
+    <div class="total">
+        <div class="ul">
+            <ul>
+                <li><h3>Total price:</h3></li>
+                <li><h3>${{total}}</h3></li>
+            </ul>
+            <ul>
+                <li><h3>Tax:</h3></li>
+                <li><h3>${{tax}}</h3></li>
+            </ul>
+            <ul>
+                <li><h3>Grand Total:</h3></li>
+                <li><h2>${{grand_total}}</h2></li>
+            </ul>
+        </div>
+        <div class="method">
+            <ul>
+                <li><img src="/static/images/icons/brand-amex@3x.webp" alt=""></li>
+                <li><img src="/static/images/icons/brand-chinaunionpay@3x.webp" alt=""></li>
+                <li><img src="/static/images/icons/PayPal.webp" alt=""></li>
+                <li><img src="/static/images/icons/Visa.webp" alt=""></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <a href="/checkout" class="checkout">Checkout</a>
+            <a href="/" class="continue">Continue Shopping</a>
+        </div>
+    </div>
+    {%else%}
+    <div class="text-align">
+        <h1>Your Shopping Cart Is Empty</h1>
+        <a href="/store"><button>Continue Shoping</button></a>
+    </div>
+    {%endif%}
+</div>
+{%endblock%}

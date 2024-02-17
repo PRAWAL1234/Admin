@@ -1,0 +1,20 @@
+{%extends '../base.html'%}
+{%block 'title'%}
+Forgot
+{%endblock%}
+{%block 'style'%}
+<link rel="stylesheet" href="/static/css/account/forgot.css">
+{%endblock%}
+{%block 'content'%}
+<div class="container">
+    <form action="" method="post" class="forgot">
+        {%csrf_token%}
+        {%include '../includes/alert.html'%}
+        <h1>Forgot Password</h1>
+        <input type="email" placeholder="Enter register Email Address" name="email">
+        <a href="/login" class="login">Got Password?Login</a>
+        <a href=""><button type="submit" class="btn">Submit</button></a>
+    </form>
+    <h1>Don't Have account?<a href="/signup">Sign up</a></h1>
+</div>
+{%endblock%}

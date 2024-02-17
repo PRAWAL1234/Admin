@@ -1,0 +1,385 @@
+.container{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 100px 0px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+.container .text-align{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container .text-align a button{
+    width: 200px;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0px 0px 1px black;
+    height: 40px;
+    border-radius: 5px;
+}
+.container table {
+    box-shadow: 0px 0px 1px black;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.container table tr {
+    box-shadow: 0px 0px 1px black;
+}
+.container table tr td .product{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    padding: 20px 20px 20px 0px;
+}
+.container table tr td .product .product-img{
+    height: 100px;
+    width: 100px;
+    box-shadow: 0px 0px 1px black;
+}
+.container table tr td .product .product-img img{
+    width: 100%;
+    height: 100px;
+}
+.container table tr td .product .product-details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 250px;
+}
+.container table tr td .product .product-details h2{
+    font-weight: lighter;
+    font-size: 20px;
+}
+.container table tr td .product .product-details h5{
+    font-size: 15px;
+    color: gray;
+}
+.container table tr td .quantity{
+    padding: 40px 40px 40px 0px;
+}
+.container table tr td .quantity .box{
+    display: flex;
+    gap: 5px;
+}
+.container table tr td .quantity .box a button{
+    border: none;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    box-shadow: 0px 0px 1px black;
+}
+.container table tr td .quantity .box input{
+    box-shadow: 0px 0px 2px black;
+    border: none;
+    width: 50px;
+    text-align: center;
+    height: 50px;
+}
+.container table tr td .price{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 30px 0px;
+    
+}
+.container table tr td .price h1{
+    font-size: 30px;
+}
+.container table tr td .price h5{
+    font-size: 12px;
+}
+.container table tr td .remove{
+    padding: 35px ;
+}
+.container table tr td .remove button{
+    font-size: 20px;
+    padding:5px 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 1px black;
+    background-color: red;
+    color: white;
+}
+
+.container .total{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 1px black;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    gap: 30px;
+}
+.container .total .ul{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px dotted black;
+    padding: 10px 0px;
+    gap: 15px;
+}
+.container .total .ul ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+.container .total .ul ul li{
+    list-style: none;
+}
+.container .total .ul ul li h3{
+    font-size: 20px;
+    font-weight: lighter;
+}
+.container .method ul{
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+.container .method ul li{
+    height: 30px;
+    width: 50px;
+    list-style: none;
+}
+.container .method ul li img{
+    height: 100%;
+    width: 100%;
+}
+.container .btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.container .btn .checkout {
+    font-size: 20px;
+    padding: 5px 20px;
+    background-color: rgba(106, 17, 189, 0.783);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+.container .btn .continue{
+    font-size: 20px;
+    padding: 5px 20px;
+    box-shadow: 0px 0px 1px black;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.checkout #table{
+    display: none !important;
+}
+.container .cart-body{
+    display: none;
+}
+@media screen and (max-width:1250px) {
+    .container{
+        flex-wrap: wrap;
+        
+    }
+    .container .total{
+        width: 720px;
+    }
+    .container .total .ul{
+        gap: 25px;
+    }
+    .container table tr td .remove{
+        padding: 0px;
+    }
+    .container table tr td .price {
+        padding: 0px 10px;
+    }
+    .container table tr td .product{
+        padding: 0px;
+    }
+    .container table tr td .quantity{
+        padding: 15px;
+    }
+    .container table {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width:970px) {
+    .container .total{
+        width: 700px;
+    }
+    .container table tr td .product .product-details h2{
+        font-size: 20px;
+    }
+    .container table tr td .price h1{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:790px) {
+    .container table{
+        display: none;
+    }
+    .container .cart-body{
+        display: flex;
+        border-radius: 10px;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .container .cart-body ul{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: 0px 0px 1px black;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .container .cart-body ul li{
+        list-style: none;
+    }
+    .container .cart-body ul li .product{
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .container .cart-body ul li .product .product-img{
+        height: 200px;
+        width: 200px;
+        box-shadow: 0px 0px 1px black;
+    }
+    .container .cart-body ul li .product .product-img img{
+        width: 100%;
+        height: 100%;
+    }
+    .container .cart-body ul li .product .product-details{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+    }
+    .container .cart-body ul li .product .product-details h2{
+        font-size: 20px;
+        font-weight: lighter;
+    }
+    .container .cart-body ul li .product .product-details h5{
+        font-size: 15px;
+    }
+    .container .cart-body ul li .quantity{
+        display: flex;
+        width: 100%;
+        justify-content:center;
+    }
+    .container .cart-body ul li .quantity .box{
+        align-self: end;
+        display: flex;
+        gap: 0px;
+        box-shadow: 0px 0px 1px black;
+    }
+    .container .cart-body ul li .quantity .box a button{
+        border: none;
+        height: 40px;
+        width: 40px;
+    }
+    .container .cart-body ul li .quantity .box input{
+        height: 40px;
+        width: 40px;
+        border: none;
+        text-align: center;
+    }
+    .container .cart-body ul li .remove {
+        width: 100%;
+        box-shadow: 0px 0px 1px black;
+        display: inline-block;
+        text-align: center;
+        padding: 5px 0px;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+    }
+    .container .total{
+        width: 370px;
+    }
+} 
+@media screen and (max-width:475px) {
+    .container .total{
+        width: 260px;
+    }
+    .container .cart-body{
+        padding: 0px;
+    }
+    .container .cart-body ul li .product{
+        gap: 5px;
+    }
+    .container .cart-body ul li .product .product-details h2{
+        font-size: 20px;
+    }
+    .container .total .ul ul li h3{
+        font-size: 17px;
+    }
+    .container .total .btn .checkout,.container .total .btn .continue{
+        font-size: 17px;
+    }
+    .container .cart-body ul li .product .product-details{
+        width: 280px;
+    }
+}  
+@media screen and (max-width:360px) {
+    .container .cart-body ul li .product{
+        flex-direction: column;
+    }
+    .container .cart-body ul li .product .product-img{
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+    }
+    .container .cart-body ul{
+        gap: 20px;
+    }
+    .container .total{
+        width: 200px;
+    }
+    .container .cart-body ul li .product .product-details{
+        width: 220px;
+    }
+    .container .total .ul ul{
+        gap: 10px;
+    }
+    .container .total .ul{
+        gap: 10px;
+    }
+}
+@media screen and (max-width:285px) {
+    .container .cart-body ul li .product .product-details{
+        width: 200px;
+    }
+    .container .total{
+        width: 180px;
+    }
+    .container .cart-body ul{
+        padding: 10px;
+    }
+    .container .cart-body ul li .product .product-img{
+        height: 150px;
+        width: 150px;
+    }
+    .container .cart-body ul li .product .product-details h2{
+        font-size: 15px;
+    }
+    .container .cart-body ul li .product .product-details h5{
+        font-size: 12px;
+    }
+}

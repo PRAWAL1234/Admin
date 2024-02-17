@@ -1,0 +1,78 @@
+{%extends './base.html'%}
+{%block 'title'%}
+Home
+{%endblock%}
+
+{%block 'style'%}
+<link rel="stylesheet" href="/static/css/home.css">
+{%endblock%}
+{%block 'content' %}
+<div class="parent">
+    <div class="son">
+        <div class="img">
+            <img src="/media/slider/c837a6_f58829a26e594ca3aa72383e19cf39b9mv2.webp" alt="">
+        </div>
+        <div class="img">
+            <img src="/media/slider/c837a6_9c1280daaeb0481abc58e6e236efdf59mv2.webp" alt="">
+        </div>
+        <div class="img">
+            <img src="/media/slider/c837a6_837f9cd4f59146c3ad47a2bd882fedfdmv2.webp" alt="">
+        </div>
+    </div>
+    <div class="next" onmouseover="return alert('dbfhd')"><i class="fa-solid fa-caret-right fa-2xl"></i></div>
+    <div class="pre"><i class="fa-solid fa-caret-left fa-2xl"></i></div>
+</div>
+<div class="container1">
+   <div class="holiday">
+        <div class="text">
+            <p>Holiday Deals</p>
+            <h1>Up to<br> 30% Off</h1>
+            <p>Selected Smartphone Brands</p>
+            <a href="/store"><Button>Shop</Button></a>
+        </div>
+        <img src="/static/images/banner/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.webp" alt="">
+   </div>
+   <div class="just">
+        <div class="text-box">
+            <p>Just In</p>
+            <h1>Take Your<br> Sound <br>Anywhere</h1>
+            <p>Top Headphone Brands</p>
+            <a href="/store" style="display: inline-block;"><button>Shop</button></a>
+        </div>
+        <img src="/static/images/banner/c837a6_d84a631864a442a496670bc2d787c6a0~mv2.webp" alt="">
+   </div>
+</div>
+
+{% include './includes/data_navbar.html' %}
+
+
+<div class="shop-by-category">
+    <h1>Shop By Category</h1>
+    <div class="category">
+        {%for i in all_category%}
+        <a href="/store/category/{{i.slug}}" class="round">
+            <div class="category-pic">
+                <img src="{{i.images.url}}" alt="">
+            </div>
+            <h1>{{i.category_name}}</h1>
+        </a>
+        {%endfor%}
+    </div>
+</div>
+<div class="container2">
+    <div class="product">
+        {% for i in product %}
+        <a href="/store/category/{{i.category.slug}}/{{i.id}}" class="product-box">
+            <div class="product-img">
+                <img src="{{i.images.url}}" alt="">
+            </div>
+            <div class="product-info">
+                <h1>{{i.product_name}}</h1>
+                <h2>${{i.price}}</h2>
+            </div>
+        </a>
+        {%endfor%}
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,122 @@
+.store .store-product{
+    display: flex;   
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px 0px;
+    box-sizing: border-box;
+    width: 90%;
+}
+.store .store-product .product{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.store .store-product .product .product-box{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 380px;
+}
+.store .store-product .product .product-box .product-img{
+    height: 80%;
+    width: 100%;
+}
+.store .store-product .product .product-box .product-img img{
+    width: 100%;
+    height: 100%;
+}
+.store{
+    display: flex;
+    width: 100%;
+}
+.store .left-menu{
+    padding: 50px 20px;
+}
+.store .left-menu button{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background-color: gainsboro;
+    border: none;
+    box-shadow: 0px 0px 2px black;
+    cursor: pointer;
+}
+.store .left-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0px 0px 1px black;
+}
+.store .left-menu ul li{
+    list-style: none;
+}
+.store .left-menu ul li a{
+    color: black;
+}
+.band{
+    display: none;
+}
+.store .store-product .product .product-box .product-text p{
+    color: black;
+}
+.paginator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+}
+.paginator .pages{
+    display: flex;
+}
+.paginator .pages a{
+    box-shadow: 0px 0px 1px black;
+    padding: 10px 20px;
+    color: black;
+}
+.paginator .pages a:hover{
+    background-color: rgba(106, 17, 189, 0.783);
+    color: white;
+}
+.disabled{
+    background-color: black;
+    color: gainsboro !important;
+}
+@media screen and (max-width:1160px) {
+      
+      .store{
+        flex-direction: column;
+      }
+      .store .store-product{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      .store .store-product .product{
+        justify-content: center;
+        gap: 50px;
+      }
+      .store .left-menu button{
+        width: 100%;
+      }
+}
+@media screen and (max-width:310px) {
+    .store .store-product .product .product-box{
+        width: 250px;
+        height: 250px;
+    }
+}
+@media screen and (max-width:680px) {
+    .paginator .pages a{
+        padding: 10px;
+    }
+}
+@media screen and (max-width:440px) {
+    .paginator .pages {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

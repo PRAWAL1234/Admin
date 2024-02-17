@@ -1,0 +1,21 @@
+{%extends '../base.html'%}
+{%block 'title'%}
+Login
+{%endblock%}
+{%block 'style'%}
+<link rel="stylesheet" href="/static/css/account/login.css">
+{%endblock%}
+{%block 'content'%}
+<div class="container">
+    <form action="" method="post" class="login">
+        {% csrf_token %}
+        {% include '../includes/alert.html' %}
+        <h1>Login</h1>
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="Password" name="password">
+        <a href="/forgot" class="forgot">Forgot password?</a>
+        <a href=""><button type="submit">Login</button></a>
+    </form>
+    <h2>Don't have account?<a href="/signup">Sign up</a></h2>
+</div>
+{%endblock%}

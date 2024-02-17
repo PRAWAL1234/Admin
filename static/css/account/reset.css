@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+    gap: 30px;
+}
+.container .forgot{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    box-shadow: 0px 0px 1px black;
+    border-radius: 10px;
+    gap: 25px;
+    background-color: white;
+}
+.container .forgot h1{
+    font-size: 25px;
+}
+.container .forgot input{
+    width: 500px;
+    height:40px;
+    border: none;
+    box-shadow: 0px 0px 1px black;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.container .forgot .login{
+    align-self: end;
+}
+.container .forgot .btn{
+    font-size: 18px;
+    width: 100%;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(106, 17, 189, 0.783);
+    color: white;
+}
+.container h1{
+    font-size: 20px;
+}
+@media screen and (max-width:635px) {
+    .container .forgot input{
+        width: 300px;
+    }
+}
+@media screen and (max-width:430px) {
+    .container .forgot input{
+        width: 200px;
+        font-size: 13px;
+    }
+    .container .forgot{
+        padding: 50px 20px;
+    }
+}

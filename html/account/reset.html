@@ -1,0 +1,23 @@
+{%extends '../base.html'%}
+{%block 'title'%}
+Forgot
+{%endblock%}
+{%block 'style'%}
+<link rel="stylesheet" href="/static/css/account/reset.css">
+{%endblock%}
+{%block 'content'%}
+<div class="container">
+    <form action="/reset-submit/" method="post" class="forgot">
+        {%csrf_token%}
+        {%include '../includes/alert.html'%}
+        <h1>Forgot Password</h1>
+        <input type="password" placeholder="Create Password" name="password">
+
+        <input type="password" placeholder="Confirm Password" name="confirm_password">
+
+        <a href="/login" class="login">Got Password?Login</a>
+        <a href=""><button type="submit" class="btn">Submit</button></a>
+    </form>
+    <h1>Don't Have account?<a href="/signup">Sign up</a></h1>
+</div>
+{%endblock%}

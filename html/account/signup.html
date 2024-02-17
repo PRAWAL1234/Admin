@@ -1,0 +1,40 @@
+{%extends '../base.html'%}
+{%block 'title' %}
+Signup
+{%endblock%}
+
+{%block 'style' %}
+<link rel="stylesheet" href="/static/css/account/signup.css">
+{%endblock%}
+{%block 'content' %}
+<div class="container">
+    <form action="" method="post" class="signup">
+        {% csrf_token %}
+        {% include '../includes/alert.html' %}
+        <h1>Sign up</h1>
+        <ul>
+            <li>
+                {{form.first_name}}
+            </li>
+            <li>
+                {{form.last_name}}
+            </li>
+            <li>
+                {{form.email}}
+            </li>
+            <li>
+                {{form.username}}
+            </li>
+            <li>
+                {{form.password}}
+            </li>
+            <li>
+                {{form.confirm_password}}
+            </li>
+        </ul>
+
+        <a href=""><button>Sign Up</button></a>
+    </form>
+    <h1>Have an account?<a href="/login">Login</a></h1>
+</div>
+{%endblock%}
